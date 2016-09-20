@@ -2,7 +2,12 @@
 
 # TODOs
 
+<<<<<<< HEAD
 bundle
+=======
+
+bundle 
+>>>>>>> 8404e2036144e77c53def2140a10bc0f899fcf0c
 
 rake db:create
 
