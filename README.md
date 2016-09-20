@@ -2,10 +2,15 @@
 
 # TODOs
 
-bundle
+
+bundle 
+
 rake db:create
+
 rake db:migrate
+
 rake dev:seed
+
 rails s
 ```
 If you receive an "rake" error,
