@@ -28,6 +28,7 @@ class User::ProfileController < User::UserApplicationController
       .permit(
         :name,
         :surname,
+        :cardnumber,
         :time_zone
     )
   end

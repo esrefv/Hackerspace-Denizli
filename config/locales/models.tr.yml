@@ -11,6 +11,8 @@ tr:
       countries: Ülkeler
       city: Şehir
       cities: Şehirler
+      card: Kart
+      cards: Kartlar
       audit: İşlem Geçmişi
       audits: İşlem Geçmişleri
     attributes:
@@ -85,3 +87,6 @@ tr:
         auditable_id: İşlem yapılan ID
         action: İşlem Türü
         created_at: Oluşturulma tarihi
+      card:
+        id: ID
+        card_number: Kart Numarası

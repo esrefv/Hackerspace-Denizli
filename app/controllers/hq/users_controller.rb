@@ -59,6 +59,6 @@ class Hq::UsersController < Hq::ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:email, :name, :surname, :time_zone)
+    params.require(:user).permit(:email, :name, :surname, :cardnumber, :time_zone)
   end
 end

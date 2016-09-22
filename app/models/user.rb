@@ -15,13 +15,15 @@ class User < ActiveRecord::Base
          :trackable,
          :validatable
 
+  # Relations
+  belongs_to :card
   # Helpers
   audited except: [:password]
 
   # Validations
   validates_presence_of :name, :email, :surname
   validates :email, uniqueness: true
-
+  validates :cardnumber, length: {is: 7}, uniqueness: true, include_blank: false
   # Callbacks
   after_commit :send_login_info, on: :create
   before_validation :create_password, on: :create
