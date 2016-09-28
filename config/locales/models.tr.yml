@@ -36,6 +36,8 @@ tr:
         authentication_token: Giriş token'ı
         name: İsim
         surname: Soyisim
+        card_id: Kard ID
+        cardnumber: Kart Numarası
         is_active: Aktif mi?
         time_zone: Zaman bölgesi
         created_at: Oluşturulma tarihi

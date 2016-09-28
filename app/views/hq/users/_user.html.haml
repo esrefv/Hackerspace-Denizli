@@ -2,7 +2,8 @@
   %td= user.id
   %td= user.full_name
   %td= mail_to user.email, user.email
-  %td= user.card.card_number
+  %td= user.card_id
+  %td= user.cardnumber
   %td=l user.current_sign_in_at if user.current_sign_in_at.present?
   %td=l user.last_sign_in_at if user.last_sign_in_at.present?
   %td= user.is_active ? t('view.active') : t('view.passive')

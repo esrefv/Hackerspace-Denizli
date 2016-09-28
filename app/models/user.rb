@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  #before_create :cardnumber_control
+
   # Virtual attributes
   attr_accessor :is_generated_password
 
@@ -49,6 +51,16 @@ class User < ActiveRecord::Base
       self.is_generated_password  = true
     end
   end
+
+#  def cardnumber_control
+#    c = Card.new
+#    c = Card.find_by card_number: self.cardnumber
+#    if c.nil?
+#      alert alert-error, "Böyle bir kart yok "
+#    else
+#      self.card_id = c.id
+#    end
+#  end
 
   def send_login_info
     UserMailer.login_info(self.id, self.password).deliver_later! if self.is_generated_password
