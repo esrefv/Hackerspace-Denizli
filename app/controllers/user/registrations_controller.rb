@@ -7,28 +7,6 @@ class User::RegistrationsController < Devise::RegistrationsController
   def edit
   end
 
-  def new
-    @user = User.new
-    respond_with(@user)
-  end
-
-  def create
-    @user = User.last
-    @card = Card.find_by card_number: @user.cardnumber
-    if @card.nil?
-      flash[:danger] = 'Böyle bir kart bulunamadı.'
-      redirect_to :back
-    elsif @card.user == nil
-      @user.card_id = @card.id
-      @user.save
-      flash[:success] = 'Kaydınız başarıyla gerçekleşmiştir.'
-      redirect_to root_path
-    else
-      flash[:danger] = 'Bu kart kullanılmaktadır.'
-      redirect_to :back
-    end
-  end
-
   private
 
   def redirect_user

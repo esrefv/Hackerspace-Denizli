@@ -17,6 +17,7 @@ class User < ActiveRecord::Base
          :trackable,
          :validatable
 
+  #\b[1-9][0-9]{2}[1,3,5,7,9]\b -- tam olarak 4 basamaklı tek sayıları bulan regex \bdhs[1-9][0-9]{2}[1,3,5,7,9]\b
   # Relations
   belongs_to :card
   # Helpers
@@ -25,7 +26,10 @@ class User < ActiveRecord::Base
   # Validations
   validates_presence_of :name, :email, :surname
   validates :email, uniqueness: true
-  validates :cardnumber, length: {is: 7}, uniqueness: true, include_blank: false
+  validates :cardnumber, length: {is: 7}, uniqueness: true, include_blank: false,
+            format: {with: /\bdhs[1-9][0-9]{2}[1,3,5,7,9]\b/, message: "Örnek: dhs0001, dhs0007"}
+
+  validate :check_cardnumber
   # Callbacks
   after_commit :send_login_info, on: :create
   before_validation :create_password, on: :create
@@ -52,15 +56,15 @@ class User < ActiveRecord::Base
     end
   end
 
-#  def cardnumber_control
-#    c = Card.new
-#    c = Card.find_by card_number: self.cardnumber
-#    if c.nil?
-#      alert alert-error, "Böyle bir kart yok "
-#    else
-#      self.card_id = c.id
-#    end
-#  end
+  def check_cardnumber
+    c = Card.new
+    c = Card.find_by card_number: self.cardnumber
+    unless c.nil?
+      self.card_id = c.id
+    else
+      errors.add(:cardnumber, "Böyle bir kart bulunmamaktadır.")
+    end
+  end
 
   def send_login_info
     UserMailer.login_info(self.id, self.password).deliver_later! if self.is_generated_password
