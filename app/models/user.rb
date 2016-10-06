@@ -1,5 +1,4 @@
 class User < ActiveRecord::Base
-  #before_create :cardnumber_control
 
   # Virtual attributes
   attr_accessor :is_generated_password
@@ -19,6 +18,7 @@ class User < ActiveRecord::Base
 
   #\b[1-9][0-9]{2}[1,3,5,7,9]\b -- tam olarak 4 basamaklı tek sayıları bulan regex \bdhs[1-9][0-9]{2}[1,3,5,7,9]\b
   # Relations
+  has_many :answers
   belongs_to :card
   # Helpers
   audited except: [:password]
@@ -27,7 +27,7 @@ class User < ActiveRecord::Base
   validates_presence_of :name, :email, :surname
   validates :email, uniqueness: true
   validates :cardnumber, length: {is: 7}, uniqueness: true, include_blank: false,
-            format: {with: /\bdhs[1-9][0-9]{2}[1,3,5,7,9]\b/, message: "Örnek: dhs0001, dhs0007"}
+            format: {with: /\bdhs[1-9][0-9]{2}[1,3,5,7,9]\b/, message: "Uyumsuz kart numarası. Örnek: dhs0001, dhs0007"}
 
   validate :check_cardnumber
   # Callbacks
