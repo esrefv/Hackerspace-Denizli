@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   concern :activeable do
     post :toggle_is_active, on: :member
   end
-  resource :answers
+
   # Admins
   devise_for :admins, controllers: { sessions: 'hq/sessions', registrations: 'hq/registrations', passwords: 'hq/passwords' }, path: 'hq',
              path_names: { sign_in: 'login', sign_out: 'logout', password: 'secret',  confirmation: 'verification' }
@@ -41,6 +41,7 @@ Rails.application.routes.draw do
     resources :profile, only: [:show, :edit, :update]
   end
 
+  resources  :answers
   # Common pages
   root to: 'welcome#index'
 

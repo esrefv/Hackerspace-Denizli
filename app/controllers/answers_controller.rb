@@ -5,6 +5,14 @@ class AnswersController < ApplicationController
     @answer = Answer.new
   end
 
+  def index
+    @answers = Answer.all
+  end
+
+  def show
+    @answer= Answer.find(params[:id])
+  end
+
   def create
     @answer = Answer.new(answer_params)
     @card = Card.find_by_id @answer.card_id
@@ -39,18 +47,19 @@ class AnswersController < ApplicationController
         @answer.status = false
         @answer.offline_at = Time.now
         @answer.update(answer_params)
-        ##format.html { redirect_to root_path, notice: 'Kullanıcı şuan offline.' }
+        format.html { redirect_to root_path, notice: 'Kullanıcı şuan offline.' }
         format.json { render root_path, status: :updated, location: @answer }
       else
-        ##format.html { redirect_to root_path, notice: 'Hatalı bir işlem.' }
+        format.html { redirect_to root_path, notice: 'Hatalı bir işlem.' }
         format.json { render json: @answer.errors, status: :unprocessable_entity }
       end
     end
   end
 
   private
+
   def answer_params
-    params.require(:answer).permit(:card_id, :value)
+    params.require(:answer).permit(:card_id, :value, :user_id, :online_at, :offline_at, :status )
   end
 
 end

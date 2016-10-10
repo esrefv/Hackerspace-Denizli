@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161003144913) do
+ActiveRecord::Schema.define(version: 20161007134442) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -96,20 +96,6 @@ ActiveRecord::Schema.define(version: 20161003144913) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "responses", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "card_id"
-    t.datetime "online_at"
-    t.datetime "offline_at"
-    t.boolean  "status"
-    t.integer  "value"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "responses", ["card_id"], name: "index_responses_on_card_id", using: :btree
-  add_index "responses", ["user_id"], name: "index_responses_on_user_id", using: :btree
-
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "",    null: false
     t.string   "encrypted_password",     default: "",    null: false
@@ -129,6 +115,7 @@ ActiveRecord::Schema.define(version: 20161003144913) do
     t.datetime "updated_at"
     t.integer  "card_id"
     t.string   "cardnumber"
+    t.integer  "answers_count",          default: 0
   end
 
   add_index "users", ["card_id"], name: "index_users_on_card_id", using: :btree
@@ -138,7 +125,5 @@ ActiveRecord::Schema.define(version: 20161003144913) do
   add_foreign_key "answers", "cards"
   add_foreign_key "answers", "users"
   add_foreign_key "cities", "countries"
-  add_foreign_key "responses", "cards"
-  add_foreign_key "responses", "users"
   add_foreign_key "users", "cards"
 end
