@@ -20,6 +20,8 @@ GEM
       erubis (~> 2.7.0)
       rails-dom-testing (~> 1.0, >= 1.0.5)
       rails-html-sanitizer (~> 1.0, >= 1.0.2)
+    active_median (0.1.3)
+      activerecord
     activejob (4.2.7.1)
       activesupport (= 4.2.7.1)
       globalid (>= 0.3.0)
@@ -89,6 +91,7 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    chartkick (2.1.1)
     chosen-rails (1.4.1)
       coffee-rails (>= 3.2)
       compass-rails (>= 1.1.2)
@@ -160,6 +163,8 @@ GEM
     ffi (1.9.14)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
+    groupdate (3.0.2)
+      activesupport (>= 3)
     haml (4.0.7)
       tilt
     haml-rails (0.9.0)
@@ -180,6 +185,8 @@ GEM
       show_for (~> 0.3, >= 0.3.0)
       will_paginate (~> 3.0, >= 3.0.3)
       will_paginate-bootstrap (~> 0.2, >= 0.2.3)
+    hightop (0.1.4)
+      activerecord
     hike (1.2.3)
     html2haml (2.0.0)
       erubis (~> 2.7.0)
@@ -414,6 +421,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  active_median
   annotate (~> 2.6.0)
   audited-activerecord (~> 4.2)
   aws-sdk (~> 1.6)
@@ -429,6 +437,7 @@ DEPENDENCIES
   capistrano-maintenance (~> 1.0)
   capistrano-rails (~> 1.1)
   capybara
+  chartkick
   chosen-rails (= 1.4.1)
   client_side_validations (~> 4.2, >= 4.2.1)
   client_side_validations-simple_form (~> 3.2, >= 3.2.1)
@@ -441,9 +450,11 @@ DEPENDENCIES
   dotenv-rails
   enum_help (~> 0.0.14)
   exception_notification (~> 4.1.1)
+  groupdate
   haml (~> 4.0.2)
   haml-rails (= 0.9.0)
   hierapolis-rails (~> 1.1.3)
+  hightop
   jbuilder (~> 2.4)
   jquery-rails (~> 4.0.4)
   kangal (~> 1.2.3)

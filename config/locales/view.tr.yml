@@ -38,6 +38,7 @@ tr:
     home_page: Anasayfa
     admin_portal: Yönetici Portalı
     profile: Profil
+    online_users: Online Kullanıcılar
   tooltips:
     delete: Sil
     are_you_sure: Devam etmek istedğinize emin misiniz?

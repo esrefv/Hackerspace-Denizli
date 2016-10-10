@@ -52,7 +52,10 @@ gem 'bootstrap-chosen-rails', '0.0.4'
 gem 'model_to_locale'
 gem 'link_to_active_state'
 gem 'jbuilder', '~> 2.4'
-
+gem 'chartkick'
+gem 'groupdate'
+gem 'hightop'
+gem 'active_median'
 group :doc do
   gem 'sdoc', require: false
 end

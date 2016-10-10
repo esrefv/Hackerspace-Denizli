@@ -1,6 +1,7 @@
 .jumbotron
   %h1 Welcome to Hacerspace
 
+
   - if current_user
     = link_to t('navbar.sign_out'), destroy_user_session_path, class: 'btn btn-large', method: :delete
     .row-fluid.marketing
@@ -16,4 +17,5 @@
   - else
     = link_to t('navbar.signup'), new_user_registration_path, class: 'btn btn-large btn-success'
     = link_to t('navbar.signin'), new_user_session_path, class: 'btn btn-large'
-    = link_to "Online Kullanıcılar = #{Answer.where(:status => true).count}" , answers_path, class: 'btn btn-large'
+    = link_to t('navbar.online_users') + " = #{Answer.where(:status => true).count}" , answers_path, class: 'btn btn-large'
+

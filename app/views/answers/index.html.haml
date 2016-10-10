@@ -1,10 +1,17 @@
 %h2 Online Users
+
 - @answers.each do |answer|
   - if answer.status == true
-    User Email : #{answer.user.email}
+    %b User Email
+    \: #{answer.user.email}
     %br/
     Name Surname: #{answer.user.name + " " + answer.user.surname}
     %br/
     Online At  : #{answer.online_at.strftime('%H:%M')}
     %br/
+
+%h4 User Responses Chart
+= bar_chart User.group(:email).sum(:answers_count)
+
+
 
