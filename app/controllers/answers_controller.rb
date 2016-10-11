@@ -6,7 +6,7 @@ class AnswersController < ApplicationController
   end
 
   def index
-    @answers = Answer.all
+    @answers = Answer.all.includes(:user).order(:id)
   end
 
   def show
