@@ -56,10 +56,13 @@ class AnswersController < ApplicationController
     end
   end
 
+
+
   private
 
   def answer_params
     params.require(:answer).permit(:card_id, :value, :user_id, :online_at, :offline_at, :status )
   end
+
 
 end
