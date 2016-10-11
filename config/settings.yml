@@ -1,15 +1,15 @@
 email:
-  sandbox: sandbox@hacerspace.com
-  noreply: no-reply@hacerspace.com
-  admin: admin@hacerspace.com
+  sandbox: sandbox@hackerspace.com
+  noreply: no-reply@hackerspace.com
+  admin: admin@hackerspace.com
 
 basic_auth:
-  username: hacerspace
-  password: hacerspace
+  username: hackerspace
+  password: hackerspace
 
 sidekiq:
-  username: hacerspace
-  password: hacerspace
+  username: hackerspace
+  password: hackerspace
 
 root_path: <%= ENV['ROOT_PATH'] %>
 

@@ -56,6 +56,8 @@ gem 'chartkick'
 gem 'groupdate'
 gem 'hightop'
 gem 'active_median'
+gem 'whenever', :require => false
+
 group :doc do
   gem 'sdoc', require: false
 end

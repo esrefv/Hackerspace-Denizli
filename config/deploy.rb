@@ -1,7 +1,7 @@
 # config valid only for current version of Capistrano
 lock '3.4.0'
 
-set :application, 'hacerspace'
+set :application, 'hackerspace'
 set :local_user, 'deploy'
 set :stages, %w(staging production)
 set :default_stage, 'production'      
