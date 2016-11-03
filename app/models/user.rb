@@ -1,5 +1,4 @@
 class User < ActiveRecord::Base
-
   # Virtual attributes
   attr_accessor :is_generated_password
 
@@ -69,4 +68,5 @@ class User < ActiveRecord::Base
   def send_login_info
     UserMailer.login_info(self.id, self.password).deliver_later! if self.is_generated_password
   end
+
 end
